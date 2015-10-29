@@ -75,5 +75,6 @@
 	print_r($app);
 	
 	$app->remove('footer');
+	$app->add('content', 'load_content', array('new_content'=>true));
 	
 	$app->ListEvents();

@@ -17,23 +17,21 @@
 		}
 		
 		// Creates a Event 
-		public function add($event=null, $function=null, $args='no arguments', $priority=10){
+		public function add($event=null, $function=null, $args=NULL, $priority=10){
 			$t = uniqid();
-			$t = $function;
-					
-			$this->events[$event][$t]['event'] 	  = $event;
-			$this->events[$event][$t]['args'] 	  = $args;
-			$this->events[$event][$t]['function']   = $function;
-			$this->events[$event][$t]['priority']   = $priority;
+			
+			$EventObject = new EventObject($event, $function, $args, $priority);
+			
+			$this->events[$event][$function] = $EventObject;
 		}
 		
 		// This method runs the Event if it#s already registred 
 		public function run($event=null, $args=array()){
 			$events = $this->events[$event];
 			if(!empty($events)):
-				foreach($events as $event):
-					$func  = $event['function'];
-					$args  = $event['args'];
+				foreach($events as $event):					
+					$func  = $event->func;
+					$args  = $event->args;
 				
 					call_user_func($func, $args);
 				endforeach;
@@ -73,3 +71,15 @@
 		
 	}
 	
+	
+	// Event Method
+	class EventObject {
+		public $event, $func, $args, $priority;
+		
+		public function __construct($event=null, $function=NULL, $args=array(), $priority=10){
+			$this->event = $event;
+			$this->func = $function;
+			$this->args = $args;
+			$this->priority = $priority;
+		}
+	}
