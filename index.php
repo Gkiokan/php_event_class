@@ -20,8 +20,15 @@
 		echo "<div style='background:darkblue; height:100px; '> HEADER </div>";
 	}
 	
-	function load_content(){
-		echo "<div style='background:green; height:50px; '> Content START goes here </div>";
+	function load_content($args=array()){
+		echo "<div style='background:green; height:50px; '>";
+		print_r($args);
+		echo "Content START goes here;";
+		echo "</div>";
+	}
+	
+	function load_content_normal(){
+		echo "<div style='background:snow; color:red;> This is the load_content_normal Method without any arguments!</div>";
 	}
 	
 	function load_footer(){
@@ -37,7 +44,11 @@
 	
 	$app->add('header', 'load_header');
 	
-	$app->add('content', 'load_content');
+	// This adds the method load_content_normal to the event content
+	$app->add('content', 'load_content_normal');
+	
+	// This adds the method load_content to the event content, but with arguments!
+	$app->add('content', 'load_content', array('additional'=>'background', 'URI'=>'post'));
 	
 	$app->add('footer', 'load_footer');
 	
@@ -49,10 +60,10 @@
 	
 	$app->run('content');
 	
+	// Some regular PHP Output in between;
 	echo "<div style='background:maroon; color:#fff; height:200px; '> COMES CONTENT </div>";
 	
 	$app->run('footer');
-	
 	
 	
 	
@@ -62,3 +73,7 @@
 	// Check the Event Class
 	echo "<pre style='padding-top:200px;'>";
 	print_r($app);
+	
+	$app->remove('footer');
+	
+	$app->ListEvents();
