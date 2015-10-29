@@ -71,8 +71,8 @@
 	$app->ListEvents();
 	
 	// Check the Event Class
-	echo "<pre style='padding-top:200px;'>";
-	print_r($app);
+	$app->debug();
+	
 	
 	$app->remove('footer');
 	$app->add('content', 'load_content', array('new_content'=>true));
