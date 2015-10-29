@@ -5,6 +5,15 @@
 		URI: http://www.gkiokan.net
 		Version: 0.3
 		Comments: -//-
+		This Class allows you to specify events and bind methods to them.
+		I've craeted this for test and demonstration purposes and to be able to
+		handle multiple methods with some kind of priority handling within simple Scripts.
+		
+		My core idea was to have something like flags or events in my Code to
+		controll the methods which should be run at a specific point.
+		I've been inspirated also a bit thought the simple Mediator Pattern for this.
+		
+		So this is it. It's the first beta release I think, and it runs pretty well so far.
 	*/
 	
 	Class Event implements EventInterfaceController {
