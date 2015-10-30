@@ -1,12 +1,9 @@
-<?php
-	
 	# PHP Event Class
 	
 	## Handle all your PHP Functions, Methods, Objects in the way you want like to. 
 
 	
-	### First of all, start with some bare code, where you define your includes, spl Autoloads and stuff.
-	### Just make sure you include the Event Class from /class/event.php
+	### Make sure you include the Event Class from /class/event.php
 	// Include the basics to start with.
 	require_once 'core/init.php';
 	
@@ -47,8 +44,8 @@
 	*	Run your events
 	* * * * * * * * * * * * * * * * * * * *
 	*	Here you go and run your events.
-	*	Please notice, that the events will just run if they are available and exists in the event list.
-	* 	Same goes for the functions, methods and Object calls.
+	*	Please notice, that the events will just run if they are available 
+	*	and exists in the event list. 	
 	* 	I have created a Class for this and called all events on the order i specified.
 	* 	You can call the Events also in any place else you want.
 	*	Be sure you add first your events to the Eventlist.
