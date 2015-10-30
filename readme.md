@@ -1,29 +1,30 @@
-	# PHP Event Class
+# PHP Event Class
 	
-	## Handle all your PHP Functions, Methods, Objects in the way you want like to. 
+Handle all your PHP Functions, Methods, Objects in the way you want like to. 
+
 
 	
-	### Make sure you include the Event Class from /class/event.php
+#### Make sure you include the Event Class from /class/event.php
 	// Include the basics to start with.
 	require_once 'core/init.php';
 	
-	### Second, initialise the Event Object.
+#### Second, initialise the Event Object.
 	// Initialise the Events 
 	// This could be updated for a static version to use it like
 	// Event::add('event', 'method');
 	$app = new Event();
 		
 	
-	*
-	*	How to add functions to events
-	* * * * * * * * * * * * * * * * * * * * *
-	* 	To add functions to events, you call the Event method "add" width params.
-	*	First parameter is the Event you wanna apply to
-	*		This is the event name, which you will call later.
+#### How to add functions to events
+	* * * * * * * * * * * * * * * * * * * *	* * * * * * * * * * * * * * * * * * * *	
+	* To add functions to events, you call the Event method "add" width params.
+	* First parameter is the Event you wanna apply to
+	*	This is the event name, which you will call later.
 	*		
-	* 	Second parameter is the function you want to add to.
+	* Second parameter is the function you want to add to.
 	*   	It should be possible to add Object Methods with array('OBJECT', 'METHOD'),
-	*		as it will be called thought call_user_func($func, $args);
+	*	as it will be called thought call_user_func($func, $args);
+	*	
 	**/
 	
 	// Here are some Examples 			
@@ -40,18 +41,16 @@
 	
 	
 	
-	*
-	*	Run your events
-	* * * * * * * * * * * * * * * * * * * *
-	*	Here you go and run your events.
-	*	Please notice, that the events will just run if they are available 
-	*	and exists in the event list. 	
-	* 	I have created a Class for this and called all events on the order i specified.
-	* 	You can call the Events also in any place else you want.
-	*	Be sure you add first your events to the Eventlist.
-	*
-	* 	You can have a look in my Event Order list in /class/eventview.php	 
-	*	This could be a normal file also, it don't have to be in a class. 
+###	Run your events
+	* * * * * * * * * * * * * * * * * * * *	* * * * * * * * * * * * * * * * * * * *	
+	* Here you go and run your events.
+	* Please notice, that the events will just run if they are available 
+	* and exists in the event list. 	
+	* I have created a Class for this and called all events on the order i specified.
+	* You can call the Events also in any place else you want.
+	* Be sure you add first your events to the Eventlist.
+	* You can have a look in my Event Order list in /class/eventview.php	 
+	* This could be a normal file also, it don't have to be in a class. 
 	*
 	**/
 	
@@ -66,12 +65,13 @@
 	*/
 	
 	
-	*
-	*	Debug and see your Events
-	* * * * * * * * * * * * * * * * * * * *	
-	*	This will provice you an print_r of the Event Class
-	* 	Run this and see what's inside, in which order and it's params and stuff.
-	*	Could be usefull in development states.
+### Debug and see your Events
+	* * * * * * * * * * * * * * * * * * * *	* * * * * * * * * * * * * * * * * * * *	
+	* This will provice you an print_r of the Event Class
+	* Run this and see what's inside, in which order and it's params and stuff.
+	* Could be usefull in development states.
+	* 
+	**/
 	
 	// Just lists the Events	
 	$app->ListEvents();
@@ -82,15 +82,13 @@
 
 
 
-	
-	*
-	*	Debug and see your Events
-	* * * * * * * * * * * * * * * * * * * *		
-	*	Some stuff playing arround with Events.
-	*	In this case, I remove the whole event 'footer' 
-	*	and modify an existing method in the event content with other params.
+### Debug and see your Events
+	* * * * * * * * * * * * * * * * * * * *	* * * * * * * * * * * * * * * * * * * *	
+	* Some stuff playing arround with Events.
+	* In this case, I remove the whole event 'footer' 
+	* and modify an existing method in the event content with other params.
 	* 
-	
+	**/
 	
 	// Removes the event 'footer', with all it's functions! DANGER!
 	$app->remove('footer');
