@@ -36,13 +36,15 @@
 		
 		// This method runs the Event if it#s already registred 
 		public function run($event=null, $args=array()){
+			echo "<div style='font-family:monospace; background:cornflowerblue; color:#fff; padding-left:20px'><b>$event</b> has been called</div>";
 			if(array_key_exists($event, $this->events)):								// Checks if the event exists
 				$events = $this->events[$event];										// Gets all the EventObjects
 				foreach($events as $event):												// Loops thought the Events
 					$func  = $event->func;												// get the function of the EventObject
 					$args  = $event->args;												// get the arguments of the EventObject
 				
-					call_user_func($func, $args);										// Call the Function with it's params.
+					if(is_callable($func))												// Checks if the Function does really exist
+					call_user_func($func, $args);										// if true, call the Function with it's params.					
 				endforeach;
 			endif;
 		}
@@ -74,7 +76,7 @@
 			echo "<h3>Event Class Object Overview</h3>";
 			print_r($this);
 			echo "</div>";		
-		}
+		}		
 		
 	}
 	
