@@ -100,3 +100,7 @@ Handle all your PHP Functions, Methods, Objects in the way you want like to.
 	$app->ListEvents();
 	
 	**/
+
+
+created by Gkiokan.
+//gkiokan.net
